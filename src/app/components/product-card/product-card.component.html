@@ -1,0 +1,28 @@
+<form class="card mt-2 shadow-sm" *ngIf="data" [formGroup]="form">
+  <div class="card-header">
+    <div class="flex align-center col-12 mt-2">
+      <mat-checkbox color='primary' (change)="showHide($event.checked)" formControlName="checked" ></mat-checkbox>
+      <mat-icon class="mail-icon ms-2" aria-hidden="false" aria-label="Example home icon">mail</mat-icon>
+      <h1 class="mb-0 ms-3">{{ data.name }}</h1>
+    </div>
+  </div>
+  <div [ngClass]="{'show': show }" class="collapse bg-light bg-gradient">
+    <div class="flex justify-between px-5">
+      <p class="my-2 card-product-title">Price</p>
+      <p class="my-2 card-product-title">Quantity</p>
+    </div>
+    <hr class="mt-0"/>
+    <div class="flex justify-between px-3">
+      <div class="col-8">
+        <p class="col-12"> {{ data.price | currency }} per count</p>
+        <p class="col-12 max-boxes"> Up to 50 boxes </p>
+      </div>
+      <div class="col-2">
+        <mat-form-field class="col-12" appearance="outline">
+          <mat-label>Quantity</mat-label>
+          <input matInput placeholder="0" type="number" formControlName="quantity" (input)="sendData()">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</form>

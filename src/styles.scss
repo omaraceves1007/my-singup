@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.align-center {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.mat-icon.mail-icon {
+  height: 48px;
+  width: 48px;
+  color: #1e82d7;
+  font-size: 48px;
+}
+
+.card-product-title {
+  font-weight: 500;
+}
+
+p.max-boxes {
+  font-size: 12px;
+  font-style: oblique;
+  color: #808080;
+}

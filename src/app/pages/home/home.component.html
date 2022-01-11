@@ -1,0 +1,38 @@
+<mat-toolbar>
+  <mat-toolbar-row class="bg-black">
+    <div class="container">
+      <div class="row">
+        <a class="col-4 flex" href="https://www.rackspace.com/" target="_blank" rel="noopener noreferrer">
+          <img class="logo" src="../../../assets/images/Rackspace_Technology_Logo_RGB_WHT.png" alt="Rackspace_Logo">
+        </a>
+      </div>
+    </div>
+  </mat-toolbar-row>
+  <mat-toolbar-row class="bg-blue">
+    <div class="container">
+      <div class="row">
+        <span class="col-4">Choose your apps</span>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<section class="container">
+  <h1>Choose Apps</h1>
+  <hr />
+  <div class="row">
+    <div class="col-6">
+      <div *ngIf="step1">
+        <app-product-card *ngFor="let item of items" [data]="item" (sendForm)="boxData($event)"></app-product-card>
+        <div class="flex justify-end">
+          <button class="mt-3" mat-raised-button color="primary" (click)="next()" [disabled]="isValid">Next</button>
+        </div>
+      </div>
+      <div *ngIf="step2">
+        <app-purchase-form (sendForm)="userData($event)" (cancelForm)="next($event)"></app-purchase-form>
+      </div>
+    </div>
+    <div class="col-6">
+      <app-summary [data]="purchaseData.items" (sendTotal)="addTotal($event)"></app-summary>
+    </div>
+  </div>
+</section>

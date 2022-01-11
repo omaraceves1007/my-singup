@@ -1,0 +1,8 @@
+{
+  "/api/*": {
+      "target": "https://postman-echo.com",
+      "secure": false,
+      "logLevel": "debug",
+      "pathRewrite": {"^/api" : ""}
+  }
+}

@@ -1,0 +1,28 @@
+<div class="w-100">
+    <h1 class="col-12 text-primary"> Summary </h1>
+    <div class="col-12 flex justify-between">
+        <div class="col-6">
+            <h3 class="mb-0">Name</h3>
+        </div>
+        <div class="col-5 flex">
+            <h3 class="mb-0 w-50">Quantity</h3>
+            <h3 class="mb-0 w-50">Price</h3>
+        </div>
+    </div>
+    <hr />
+    <div class="w-100 flex justify-between border-bottom" *ngFor="let item of list">
+        <div class="col-5">
+            <h3 class="mb-0">{{item.name}}</h3>
+        </div>
+        <div class="col-5 flex">
+            <h3 class="mb-0 w-50">{{item.quantity}}</h3>
+            <h3 class="mb-0 w-50">{{getPrice(item) | currency}}</h3>
+        </div>
+    </div>
+    <div class="col-12 flex justify-between">
+        <div class="offset-7 col-5 flex">
+            <h3 class="mb-0 w-50 fw-bold">Estimated Total: </h3>
+            <h3 class="mb-0 w-50 fw-bold">{{getTotal() | currency}}</h3>
+        </div>
+    </div>
+</div>
