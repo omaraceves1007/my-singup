@@ -4,7 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build",
+    "build": "npm run build:dev",
+    "build:dev": "npm run ng:bump-version:dev && ng build",
+    "build:prod": "npm run ng:bump-version:prod && ng build --prod",
+    "ng:bump-version:dev": "gulp --configuration=staging",
+    "ng:bump-version:prod": "gulp --configuration=prod",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -32,12 +36,15 @@
     "@angular/compiler-cli": "~13.1.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
+    "gulp": "^4.0.2",
+    "gulp-replace": "^1.1.3",
     "jasmine-core": "~3.10.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "minimist": "^1.2.5",
     "typescript": "~4.5.2"
   }
 }

@@ -4,6 +4,7 @@ import { IProduct } from '../../models/product';
 import { PurchaseService } from 'src/app/services/purchase.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IUser } from 'src/app/models/user';
+import { environment } from 'src/environments/environment';
 
 @Component({
   templateUrl: './home.component.html',
@@ -11,6 +12,7 @@ import { IUser } from 'src/app/models/user';
 })
 export class HomeComponent implements OnInit {
 
+  public version = environment.version;
   public step1 = true;
   public step2 = false;
   public isValid = true;

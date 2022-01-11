@@ -49,6 +49,9 @@
         <input matInput type="text" formControlName="bZip">
       </mat-form-field>
     </div>
+    <mat-error class="col-12 pb-2 ps-2 text-end" *ngIf="form.invalid">
+      Fill all fields to purchase.
+    </mat-error>
   </div>
   <div class="flex justify-end">
     <button class="m-3" mat-raised-button type="button" (click)="cancel()">Cancel</button>

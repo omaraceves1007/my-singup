@@ -23,6 +23,7 @@ export class ProductCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.form.controls['quantity'].markAsTouched();
   }
 
   showHide(event: boolean): void {
@@ -35,6 +36,14 @@ export class ProductCardComponent implements OnInit {
       form: this.form
     };
     this.sendForm.emit(formData);
+  }
+
+
+  getErrorMsg(): string {
+    if (this.form.controls['quantity'].errors) {
+      return 'min' in this.form.controls['quantity'].errors ? 'Min value 1, please enter a higher value ' : ' Max value 50, please enter a smaller value'
+    }
+    return '';
   }
 
 }

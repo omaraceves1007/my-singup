@@ -1,7 +1,7 @@
 <form class="card mt-2 shadow-sm" *ngIf="data" [formGroup]="form">
   <div class="card-header">
     <div class="flex align-center col-12 mt-2">
-      <mat-checkbox color='primary' (change)="showHide($event.checked)" formControlName="checked" ></mat-checkbox>
+      <mat-checkbox color='primary' (change)="showHide($event.checked)" formControlName="checked"></mat-checkbox>
       <mat-icon class="mail-icon ms-2" aria-hidden="false" aria-label="Example home icon">mail</mat-icon>
       <h1 class="mb-0 ms-3">{{ data.name }}</h1>
     </div>
@@ -11,7 +11,7 @@
       <p class="my-2 card-product-title">Price</p>
       <p class="my-2 card-product-title">Quantity</p>
     </div>
-    <hr class="mt-0"/>
+    <hr class="mt-0" />
     <div class="flex justify-between px-3">
       <div class="col-8">
         <p class="col-12"> {{ data.price | currency }} per count</p>
@@ -23,6 +23,9 @@
           <input matInput placeholder="0" type="number" formControlName="quantity" (input)="sendData()">
         </mat-form-field>
       </div>
+      <mat-error class="col-12 pb-2 text-end" *ngIf="form.controls['quantity']?.invalid">
+        {{getErrorMsg()}}
+      </mat-error>
     </div>
   </div>
 </form>
