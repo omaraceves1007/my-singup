@@ -1,3 +1,18 @@
-<p>
+<!-- <p>
   {{ info.user.firstName + ' has paid $' + info.total }}
-</p>
+</p> -->
+<h1 mat-dialog-title>Succesful operation</h1>
+<div mat-dialog-content>
+  <div class="row">
+    <h3>Shop List</h3>
+    <div class="col-12 flex justify-between" *ngFor="let item of data.items">
+      <span class="w-50"> {{ item.name }} </span>
+      <span class="w-25 text-center"> {{ item.quantity }} </span>
+      <span class="w-25 text-end"> {{ item.price | currency }} </span>
+    </div>
+    <hr>
+    <div class="w-100 fw-bold text-end">
+      Total: {{ data.total | currency }}
+    </div>
+  </div>
+</div>

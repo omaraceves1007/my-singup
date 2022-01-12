@@ -17,6 +17,6 @@ jobs:
           node-version: 16
           registry-url: http://registry.npmjs.org/
       - run: npm ci
-      - run: npm test
+      - run: npm run test:prod
       - run: npm run build:prod
 

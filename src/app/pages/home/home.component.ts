@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { IUser } from 'src/app/models/user';
 import { environment } from 'src/environments/environment';
 import { ResponseSnackComponent } from '../../components/response-snack/response-snack.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   templateUrl: './home.component.html',
@@ -29,7 +30,7 @@ export class HomeComponent implements OnInit {
     total: 0
   };
 
-  constructor(private _purchase: PurchaseService, private _snackBar: MatSnackBar) { }
+  constructor(private _purchase: PurchaseService, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -79,12 +80,15 @@ export class HomeComponent implements OnInit {
     const data = JSON.parse(JSON.stringify(this.purchaseData));
     this._purchase.purchase(data).subscribe(res => {
       console.log(res.data);
-      this._snackBar.openFromComponent(ResponseSnackComponent, {
+      this._snackBar.open('Saved!', 'Close', {
         horizontalPosition: 'center',
         verticalPosition: 'top',
         duration: 5000,
         data:res.data
       });
+      this.dialog.open(ResponseSnackComponent, {
+        data: res.data
+      })
       this.next(true);
     });
   }

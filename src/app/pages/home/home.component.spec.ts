@@ -17,6 +17,7 @@ import { HomeComponent } from './home.component';
 import { SummaryComponent } from 'src/app/components/summary/summary.component';
 import { ProductCardComponent } from 'src/app/components/product-card/product-card.component';
 import { PurchaseFormComponent } from 'src/app/components/purchase-form/purchase-form.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 describe('HomeComponent', () => {
@@ -38,7 +39,8 @@ describe('HomeComponent', () => {
         MatButtonModule,
         MatDatepickerModule,
         MatSnackBarModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        MatDialogModule
       ]
     })
     .compileComponents();

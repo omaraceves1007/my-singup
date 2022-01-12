@@ -20,7 +20,7 @@
   <!-- <h1>Choose Apps</h1>
   <hr /> -->
   <div class="row">
-    <div class="col-6">
+    <div class="col-sm-12 col-lg-6">
       <div *ngIf="step1">
         <app-product-card *ngFor="let item of items" [data]="item" (sendForm)="boxData($event)"></app-product-card>
         <div class="flex justify-end">
@@ -31,7 +31,7 @@
         <app-purchase-form (sendForm)="userData($event)" (cancelForm)="next($event)"></app-purchase-form>
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-sm-12 col-lg-6">
       <app-summary [data]="purchaseData.items" (sendTotal)="addTotal($event)"></app-summary>
     </div>
   </div>

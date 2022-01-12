@@ -15,6 +15,7 @@ import * as moment from 'moment';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { By } from '@angular/platform-browser';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 const MY_FORMATS = {
   parse: {
@@ -40,6 +41,7 @@ describe('PurchaseFormComponent', () => {
         ReactiveFormsModule,
         MatCheckboxModule,
         MatInputModule,
+        MatFormFieldModule,
         MatIconModule,
         MatButtonModule,
         MatDatepickerModule,
