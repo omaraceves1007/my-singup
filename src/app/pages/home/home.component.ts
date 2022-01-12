@@ -82,7 +82,7 @@ export class HomeComponent implements OnInit {
       this._snackBar.openFromComponent(ResponseSnackComponent, {
         horizontalPosition: 'center',
         verticalPosition: 'top',
-        duration: 3000,
+        duration: 5000,
         data:res.data
       });
       this.next(true);
