@@ -10,7 +10,7 @@
     "ng:bump-version:dev": "gulp --configuration=staging",
     "ng:bump-version:prod": "gulp --configuration=prod",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test --browsers ChromeHeadless"
   },
   "private": true,
   "dependencies": {
