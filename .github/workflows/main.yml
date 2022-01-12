@@ -29,11 +29,14 @@ jobs:
         with:
           node-version: 16
 
-      - run: npm ci
+      - run: npm install
 
       #- run: npm run build:prod
 
       - run: npm run test
+
+        env:
+          CI: true
 
       #- name: Deploy to GitHub Pages
         # You may pin to the exact commit or the version.
