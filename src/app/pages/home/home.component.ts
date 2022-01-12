@@ -5,6 +5,7 @@ import { PurchaseService } from 'src/app/services/purchase.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IUser } from 'src/app/models/user';
 import { environment } from 'src/environments/environment';
+import { ResponseSnackComponent } from '../../components/response-snack/response-snack.component';
 
 @Component({
   templateUrl: './home.component.html',
@@ -63,14 +64,14 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  addTotal(total: number):void {
+  addTotal(total: number): void {
     this.purchaseData.total = total;
   }
 
   userData(user: IUser): void {
     this.purchaseData.user = user;
     this.purchaseData.user.date = this.purchaseData.user.date.format();
-    this.purchaseData.items = this.purchaseData.items.filter( (item: IProduct) => item.selected === true);
+    this.purchaseData.items = this.purchaseData.items.filter((item: IProduct) => item.selected === true);
     this.saveForm();
   }
 
@@ -78,10 +79,11 @@ export class HomeComponent implements OnInit {
     const data = JSON.parse(JSON.stringify(this.purchaseData));
     this._purchase.purchase(data).subscribe(res => {
       console.log(res.data);
-      this._snackBar.open('Guardado Correctamente', 'Close', {
+      this._snackBar.openFromComponent(ResponseSnackComponent, {
         horizontalPosition: 'center',
         verticalPosition: 'top',
         duration: 3000,
+        data:res.data
       });
       this.next(true);
     });

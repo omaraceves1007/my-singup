@@ -46,7 +46,7 @@ export class PurchaseFormComponent implements OnInit {
         email: ['', [Validators.required, Validators.email]],
         card: ['', [Validators.required, cardValidator()]],
         date: [moment(), [Validators.required]],
-        ccv: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(3), Validators.pattern('^[0-9]*$')]],
+        ccv: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(4), Validators.pattern('^[0-9]*$')]],
         bAddress: ['', [Validators.required]],
         bCity: ['', [Validators.required]],
         bState: ['', [Validators.required]],

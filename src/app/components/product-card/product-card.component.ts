@@ -28,6 +28,7 @@ export class ProductCardComponent implements OnInit {
 
   showHide(event: boolean): void {
     this.show = event;
+    this.sendData();
   }
 
   sendData(): void {
